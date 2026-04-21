@@ -1,0 +1,25 @@
+{
+	"name": "tt_bot",
+	"type": "module",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "node app",
+		"format": "prettier . --write"
+	},
+	"keywords": [],
+	"author": "lvdat",
+	"license": "MIT",
+	"packageManager": "pnpm@10.33.0",
+	"devDependencies": {
+		"prettier": "^3.8.3"
+	},
+	"dependencies": {
+		"canvas": "^3.2.3",
+		"discord.js": "^14.26.3",
+		"dotenv": "^17.4.2",
+		"mongoose": "^9.5.0",
+		"redis": "^5.12.1"
+	}
+}
