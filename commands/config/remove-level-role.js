@@ -5,7 +5,9 @@ export default {
 	data: new SlashCommandBuilder()
 		.setName('remove-level-role')
 		.setDescription('Xóa role theo level')
-		.addIntegerOption((o) => o.setName('level').setRequired(true))
+		.addIntegerOption((o) =>
+			o.setName('level').setDescription('Level cần gỡ role').setRequired(true),
+		)
 		.setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
 	async execute(interaction) {

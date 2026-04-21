@@ -5,8 +5,12 @@ export default {
 	data: new SlashCommandBuilder()
 		.setName('add-level-role')
 		.setDescription('Gán role theo level')
-		.addIntegerOption((o) => o.setName('level').setRequired(true))
-		.addRoleOption((o) => o.setName('role').setRequired(true))
+		.addIntegerOption((o) =>
+			o.setName('level').setDescription('Level cần set').setRequired(true),
+		)
+		.addRoleOption((o) =>
+			o.setName('role').setDescription('Role').setRequired(true),
+		)
 		.setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
 	async execute(interaction) {

@@ -1,11 +1,16 @@
 import { SlashCommandBuilder, PermissionFlagsBits } from 'discord.js'
-import { setLevelChannel } from '../../modules/level/config/guild.service.js.js'
+import { setLevelChannel } from '../../modules/level/config/guild.service.js'
 
 export default {
 	data: new SlashCommandBuilder()
 		.setName('set-level-channel')
 		.setDescription('Set kênh thông báo level')
-		.addChannelOption((o) => o.setName('channel').setRequired(true))
+		.addChannelOption((o) =>
+			o
+				.setName('channel')
+				.setDescription('Kênh cần set thông báo level')
+				.setRequired(true),
+		)
 		.setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
 	async execute(interaction) {

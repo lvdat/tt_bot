@@ -2,7 +2,7 @@ import { REST, Routes } from 'discord.js'
 import config from '../config/index.js'
 
 export default (client) => {
-	client.once('ready', async () => {
+	client.once('clientReady', async () => {
 		console.log(`Logged in as ${client.user.tag}`)
 
 		const cmds = [...client.commands.values()].map((c) => c.data.toJSON())

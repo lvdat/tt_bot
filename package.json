@@ -5,7 +5,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "node src/index.js",
+		"dev": "node index.js",
 		"format": "prettier . --write"
 	},
 	"keywords": [],
