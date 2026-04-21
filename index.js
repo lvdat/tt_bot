@@ -19,7 +19,7 @@ commands.set('leaderboard', leaderboard)
 
 await mongo()
 
-flushXP(redis, addXP)
+flushXP(redis, addXP, client)
 
 messageEvent(client)
 voiceEvent(client)
