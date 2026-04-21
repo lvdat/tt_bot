@@ -1,8 +1,11 @@
+import { log } from '../../utils/logger.js'
 import { getConfig } from './config/guild.service.js'
 
 export default async (client, guildId, userId, newLevel) => {
 	const guild = await client.guilds.fetch(guildId)
 	const member = await guild.members.fetch(userId)
+
+    log(`[LEVEL UP] ${member.user.tag} → Level ${newLevel}`)
 
 	const config = await getConfig(guildId)
 
@@ -10,7 +13,10 @@ export default async (client, guildId, userId, newLevel) => {
 	const role = config.levelRoles.find((r) => r.level === newLevel)
 	if (role) {
 		const r = guild.roles.cache.get(role.roleId)
-		if (r) await member.roles.add(r).catch(() => {})
+		if (r) {
+            await member.roles.add(r).catch(() => {})
+            log(`[ROLE] ${member.user.tag} added role ${r.name}`)
+        }
 	}
 
 	// 🔔 Thông báo

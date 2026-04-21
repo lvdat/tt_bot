@@ -1,4 +1,5 @@
 import { bufferXP } from './buffer.js'
+import { log } from '../../utils/logger.js'
 
 export default async (message, redis) => {
 	if (!message.guild || message.author.bot) return
@@ -12,4 +13,6 @@ export default async (message, redis) => {
 	await redis.set(cdKey, 1, 'EX', 60)
 
 	await bufferXP(redis, message.guild.id, message.author.id, xp)
+
+    log(`[CHAT] ${message.author.tag} +${xp} XP`)
 }
