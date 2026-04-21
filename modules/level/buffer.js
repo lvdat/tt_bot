@@ -4,7 +4,7 @@ export const bufferXP = async (redis, guildId, userId, xp) => {
 	await redis.expire(key, 120)
 }
 
-export const flushXP = (redis, addXP) => {
+export const flushXP = (redis, addXP, client) => {
 	setInterval(async () => {
 		const keys = await redis.keys('xp:*')
 
@@ -14,7 +14,7 @@ export const flushXP = (redis, addXP) => {
 
 			const [, guildId, userId] = key.split(':')
 
-			await addXP(guildId, userId, parseInt(xp))
+			await addXP(client, guildId, userId, parseInt(xp))
 			await redis.del(key)
 		}
 	}, 30000)
