@@ -1,5 +1,5 @@
 import { SlashCommandBuilder, PermissionFlagsBits } from 'discord.js'
-import { setLevelChannel } from '../modules/level/config/guild.service.js'
+import { setLevelChannel } from '../../modules/level/config/guild.service.js.js'
 
 export default {
 	data: new SlashCommandBuilder()
